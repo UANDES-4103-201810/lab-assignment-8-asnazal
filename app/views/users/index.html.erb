@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Users</h2>
+
+  <table class="table table-dark table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Username</th>
+      <th>Admin</th>
+
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |x| %>
+
+      <tr>
+        <td> <%=x.name%></td>
+        <td> <%=x.lastname%></td>
+        <td> <%=x.username%></td>
+        <td> <%=x.admin%></td>
+
+
+
+        <td> <%= link_to 'Show Products','/users/' + x.id.to_s %></td>
+        <td> <%= link_to 'Edit', edit_user_path(x) %></td>
+        <td><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end%>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<%= link_to 'New User', new_user_path %>
